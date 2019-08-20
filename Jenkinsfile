@@ -46,6 +46,14 @@ spec:
         }
       }
     }
+    stage(deployments)
+    {
+      steps{
+        container('gcloud'){
+          sh "cp -r ./K8s/* gs://pg-jenk-spinnaker-kubernetes-manifests"
+        }
+      }
+    }
     /*stage('Deploy Canary') {
       // Canary branch
       /when { branch 'Canary' }
