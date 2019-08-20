@@ -50,7 +50,9 @@ spec:
     {
       steps{
         container('gcloud'){
-          sh "cp -r ./K8s/* gs://pg-jenk-spinnaker-kubernetes-manifests"
+          sh "pwd"
+          sh "ls -altr"
+          sh "cp -r ./k8s/* gs://pg-jenk-spinnaker-kubernetes-manifests"
         }
       }
     }
