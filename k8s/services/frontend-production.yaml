@@ -15,7 +15,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: frontend
+  name: frontend-production
 spec:
   type: LoadBalancer
   ports:
