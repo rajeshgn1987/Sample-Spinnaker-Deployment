@@ -30,6 +30,11 @@ spec:
     command:
     - cat
     tty: true
+  - name: gsutil
+    image: gcr.io/cloud-builders/gsutil
+    command:
+    - cat
+    tty: true
   - name: kubectl
     image: gcr.io/cloud-builders/kubectl
     command:
@@ -49,7 +54,7 @@ spec:
     stage(deployments)
     {
       steps{
-        container('gcloud'){
+        container('gsutil'){
           sh "pwd"
           sh "ls -altr"
           sh "cp -r ./k8s/* gs://pg-jenk-spinnaker-kubernetes-manifests"
