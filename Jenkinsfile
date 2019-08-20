@@ -43,15 +43,9 @@ spec:
 """
 }
   }
+  
   stages {
-        stage('Build and push image with Container Builder') {
-      steps {
-        container('gcloud') {
-          sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${imageTag} ."
-        }
-      }
-    }
-    stage(deployments)
+     stage(deployments)
     {
       steps{
         container('gsutil'){
@@ -61,6 +55,14 @@ spec:
         }
       }
     }
+        stage('Build and push image with Container Builder') {
+      steps {
+        container('gcloud') {
+          sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${imageTag} ."
+        }
+      }
+    }
+   
     /*stage('Deploy Canary') {
       // Canary branch
       /when { branch 'Canary' }
