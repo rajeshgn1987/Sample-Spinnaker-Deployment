@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: sample-app-rajesh-fe
-        image: gcr.io/pg-jenk-spinnaker/sample-app-rajesh
+        image: gcr.io/pg-priv-gke-cicd/sample-app-rajesh
         resources:
           limits:
             memory: "500Mi"
