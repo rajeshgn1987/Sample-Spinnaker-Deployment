@@ -1,4 +1,4 @@
-def project = 'pg-jenk-spinnaker'
+def project = 'pg-priv-gke-cicd'
 def  appName = 'sample-app-rajesh'
 def  feSvcName = "${appName}-frontend"
 def  imageTag = "gcr.io/${project}/${appName}:${env.BUILD_NUMBER}"
@@ -51,7 +51,7 @@ spec:
         container('gsutil'){
           sh "pwd"
           sh "ls -altr"
-          sh "gsutil cp -r ./k8s/* gs://pg-jenk-spinnaker-kubernetes-manifests"
+          sh "gsutil cp -r ./k8s/* gs://pg-priv-gke-cicd-kubernetes-manifests"
         }
       }
     }
